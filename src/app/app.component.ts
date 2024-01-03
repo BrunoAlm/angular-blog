@@ -17,5 +17,5 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'blog';
+  title = 'angular-blog';
 }
