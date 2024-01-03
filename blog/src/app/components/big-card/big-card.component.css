@@ -1,6 +1,6 @@
 .container__big-card {
     height: fit-content;
-    width: 400px;
+    width: 500px;
     margin-left: 20px;
     margin-right: 10px;
 
@@ -15,7 +15,10 @@
 }
 
 .big-card__photo>img {
-    min-width: 398px;
+    /* min-width: 550px; */
+    height: 250px;
+    object-fit: cover;
+
 }
 
 .big-card__title {
@@ -23,7 +26,7 @@
 }
 
 .big-card__title>h1 {
-    font-size: 20px;
+    font-size: 26px;
 }
 
 .big-card__description {

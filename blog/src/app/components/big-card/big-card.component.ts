@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-big-card',
@@ -8,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './big-card.component.css'
 })
 export class BigCardComponent {
+  @Input()
+  photoCover: string = "https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png"
+  @Input()
+  cardTitle: string = "Vazio"
+  @Input()
+  cardDescription: string = "Vazio"
+
 
 }
