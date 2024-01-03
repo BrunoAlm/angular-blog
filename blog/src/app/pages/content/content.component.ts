@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { dataFake } from "../../data/dataFake";
 @Component({
   selector: 'app-content',
   standalone: true,
@@ -8,8 +8,30 @@ import { RouterLink } from '@angular/router';
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
 })
-export class ContentComponent {
-  photoCover: string = "https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=910&height=568&format=.jpg&quality=91&imagick=uploads.adrenaline.com.br/2024/01/a_plague-tale-innocence-912x569.jpg"
-  contentTitle: string = "A Plague Tale: Innocence é o jogo grátis do dia na Epic Games Store; resgate até amanhã"
-  contentDescription: string = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias temporibus est, aperiam soluta, nulla nobis quaerat iusto molestias in accusamus blanditiis dolores tempora. Veniam in unde delectus soluta, rerum non."
+export class ContentComponent implements OnInit {
+  photoCover: string = ""
+  contentTitle: string = ""
+  contentDescription: string = ""
+
+  private id: string | null = "0"
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(value =>
+      this.id = value.get("id")
+    )
+
+    this.setValuesToComponent(this.id)
+  }
+
+  setValuesToComponent(id: string | null) {
+    const result = dataFake.filter(article => article.id == id)[0]
+
+   
+      this.contentTitle = result.title
+      this.contentDescription = result.description
+      this.photoCover = result.photoCover
+  }
+
 }
